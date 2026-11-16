@@ -1,0 +1,109 @@
+
+erDiagram
+    USUARIO {
+        int id_usuario PK
+        string nome
+        string email
+    }
+
+    EQUIPE {
+        int id_equipe PK
+        string nome
+    }
+
+    MEMBRO_EQUIPE {
+        int id_membro PK
+        int id_usuario FK
+        int id_equipe FK
+        string funcao
+    }
+
+    PROJETO {
+        int id_projeto PK
+        int id_equipe FK
+        string nome
+        string descricao
+    }
+
+    CATEGORIA_TAREFA {
+        int id_categoria PK
+        string nome
+        string descricao
+    }
+
+    TAREFA {
+        int id_tarefa PK
+        int id_projeto FK
+        int id_categoria FK
+        int id_responsavel FK
+        string titulo
+        string descricao
+        string status
+    }
+
+    MARCO {
+        int id_marco PK
+        int id_projeto FK
+        string nome
+        string descricao
+        date data_prevista
+    }
+
+    VERSAO {
+        int id_versao PK
+        int id_projeto FK
+        string identificacao
+        date data_criacao
+    }
+
+    BUG {
+        int id_bug PK
+        int id_projeto FK
+        int id_versao FK
+        string descricao
+        string status
+        string descricao_correcao
+    }
+
+    TESTE {
+        int id_teste PK
+        int id_versao FK
+        int id_membro FK
+        string descricao
+        string resultado
+        date data_teste
+        boolean obrigatorio
+    }
+
+    COMENTARIO {
+        int id_comentario PK
+        int id_usuario FK
+        int id_tarefa FK
+        int id_bug FK
+        string conteudo
+        datetime data_hora
+    }
+
+    PUBLICACAO {
+        int id_publicacao PK
+        int id_versao FK
+        string plataforma
+        date data_publicacao
+    }
+
+    USUARIO ||--o{ MEMBRO_EQUIPE : participa
+    EQUIPE ||--o{ MEMBRO_EQUIPE : possui
+    EQUIPE ||--o{ PROJETO : desenvolve
+    PROJETO ||--o{ TAREFA : possui
+    CATEGORIA_TAREFA ||--o{ TAREFA : classifica
+    MEMBRO_EQUIPE o|--o{ TAREFA : responsavel
+    PROJETO ||--o{ MARCO : possui
+    PROJETO ||--o{ VERSAO : gera
+    PROJETO ||--o{ BUG : registra
+    VERSAO o|--o{ BUG : relaciona
+    VERSAO ||--o{ TESTE : recebe
+    MEMBRO_EQUIPE ||--o{ TESTE : executa
+    USUARIO ||--o{ COMENTARIO : escreve
+    TAREFA o|--o{ COMENTARIO : recebe
+    BUG o|--o{ COMENTARIO : recebe
+    VERSAO ||--o{ PUBLICACAO : origina
