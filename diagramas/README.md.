@@ -1,1 +1,20 @@
+ Diagramas – IndieDev Hub
 
+Esta pasta contém os diagramas desenvolvidos para representar a estrutura do banco de dados do projeto IndieDev Hub.
+
+## Arquivos disponíveis
+
+- **PNG:** imagem do diagrama para visualização rápida.
+- **SVG:** versão vetorial do diagrama, permitindo ampliação sem perda de qualidade.
+- **MMD:** código-fonte Mermaid utilizado para construir e editar o diagrama.
+- **PDF:** versão do diagrama em formato de documento, adequada para leitura e impressão.
+
+## Descrição
+
+O diagrama apresenta as entidades do sistema, seus atributos, chaves primárias, chaves estrangeiras e relacionamentos.
+
+O modelo representa as estruturas de usuários, equipes, membros, projetos, tarefas, categorias, marcos, versões, bugs, testes, comentários e publicações.
+
+**Projeto:** IndieDev Hub  
+**Disciplina:** CIN 8003 – Bancos de Dados e Aplicações  
+**Instituição:** Universidade Federal de Santa Catarina (UFSC)
